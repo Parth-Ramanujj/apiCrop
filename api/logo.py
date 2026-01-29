@@ -2,14 +2,13 @@ from http.server import BaseHTTPRequestHandler
 import json
 import sys
 import os
+import base64
 
 # Allow importing from root folder
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import logo  # root logo.py
 
-class handler(BaseHTTPRequestHandler):
-    import base64
 
 def collect_images_as_base64(folder):
     images = []
@@ -29,13 +28,21 @@ def collect_images_as_base64(folder):
 
     return images
 
+
+class handler(BaseHTTPRequestHandler):
+
     def do_GET(self):
         try:
             # Vercel only allows writing to /tmp
             output_dir = "/tmp/assets"
-            
-            # Run the extraction
+            os.makedirs(output_dir, exist_ok=True)
+
+            # Run your main logic
             result = logo.run(output_dir)
+
+            # Collect images as base64
+            logos_path = os.path.join(output_dir, "logos")
+            images = collect_images_as_base64(logos_path)
 
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -43,7 +50,8 @@ def collect_images_as_base64(folder):
 
             self.wfile.write(json.dumps({
                 "success": True,
-                "data": result
+                "data": result,
+                "images": images
             }).encode())
 
         except Exception as e:
@@ -55,3 +63,7 @@ def collect_images_as_base64(folder):
                 "success": False,
                 "error": str(e)
             }).encode())
+
+    def do_POST(self):
+        # allow POST also
+        return self.do_GET()
