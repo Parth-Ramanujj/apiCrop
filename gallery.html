@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +17,13 @@
             --accent-hover: #1f6feb;
             --border: #30363d;
         }
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -27,7 +32,7 @@
             height: 100vh;
             overflow: hidden;
         }
-        
+
         /* Sidebar */
         .sidebar {
             width: 260px;
@@ -38,7 +43,7 @@
             padding: 20px;
             flex-shrink: 0;
         }
-        
+
         .logo {
             font-size: 1.2rem;
             font-weight: 600;
@@ -48,9 +53,11 @@
             align-items: center;
             gap: 10px;
         }
-        
-        .logo span { color: var(--accent); }
-        
+
+        .logo span {
+            color: var(--accent);
+        }
+
         .nav-item {
             padding: 10px 15px;
             margin-bottom: 5px;
@@ -63,18 +70,18 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .nav-item:hover {
             background-color: var(--card-bg);
             color: var(--text-main);
         }
-        
+
         .nav-item.active {
             background-color: rgba(88, 166, 255, 0.1);
             color: var(--accent);
             font-weight: 500;
         }
-        
+
         .badge {
             font-size: 0.75rem;
             background-color: var(--border);
@@ -82,12 +89,12 @@
             border-radius: 10px;
             color: var(--text-secondary);
         }
-        
+
         .nav-item.active .badge {
             background-color: var(--accent);
             color: #fff;
         }
-        
+
         /* Main Content */
         .main {
             flex: 1;
@@ -95,7 +102,7 @@
             flex-direction: column;
             overflow: hidden;
         }
-        
+
         .header {
             padding: 20px 30px;
             border-bottom: 1px solid var(--border);
@@ -105,7 +112,7 @@
             background-color: rgba(15, 17, 21, 0.8);
             backdrop-filter: blur(10px);
         }
-        
+
         .search-bar {
             background-color: var(--sidebar-bg);
             border: 1px solid var(--border);
@@ -116,23 +123,23 @@
             outline: none;
             font-family: inherit;
         }
-        
+
         .search-bar:focus {
             border-color: var(--accent);
         }
-        
+
         .content-area {
             flex: 1;
             overflow-y: auto;
             padding: 30px;
         }
-        
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 25px;
         }
-        
+
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
@@ -145,28 +152,28 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             border-color: var(--accent);
         }
-        
+
         .card-img {
             flex: 1;
             width: 100%;
             height: 100%;
             object-fit: contain;
             padding: 15px;
-            background-image: 
-                linear-gradient(45deg, #161b22 25%, transparent 25%), 
-                linear-gradient(-45deg, #161b22 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #161b22 75%), 
+            background-image:
+                linear-gradient(45deg, #161b22 25%, transparent 25%),
+                linear-gradient(-45deg, #161b22 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #161b22 75%),
                 linear-gradient(-45deg, transparent 75%, #161b22 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         }
-        
+
         .card-info {
             padding: 10px;
             background-color: var(--sidebar-bg);
@@ -178,13 +185,13 @@
             text-overflow: ellipsis;
             text-align: center;
         }
-        
+
         .section-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
             font-weight: 500;
         }
-        
+
         /* Modal */
         .modal {
             display: none;
@@ -193,29 +200,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             flex-direction: column;
         }
-        
-        .modal.active { display: flex; }
-        
+
+        .modal.active {
+            display: flex;
+        }
+
         .modal-img {
             max-width: 90%;
             max-height: 80vh;
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
         }
-        
+
         .modal-info {
             margin-top: 20px;
             color: var(--text-main);
             text-align: center;
         }
-        
+
         .modal-close {
             position: absolute;
             top: 20px;
@@ -225,9 +234,11 @@
             cursor: pointer;
             transition: color 0.2s;
         }
-        
-        .modal-close:hover { color: var(--accent); }
-        
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
         .modal-nav {
             position: absolute;
             top: 50%;
@@ -238,19 +249,39 @@
             padding: 20px;
             transition: color 0.2s;
         }
-        
-        .modal-nav:hover { color: var(--accent); }
-        .nav-prev { left: 20px; }
-        .nav-next { right: 20px; }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
+        .modal-nav:hover {
+            color: var(--accent);
+        }
+
+        .nav-prev {
+            left: 20px;
+        }
+
+        .nav-next {
+            right: 20px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
     </style>
 </head>
+
 <body>
 
     <div class="sidebar">
@@ -267,7 +298,7 @@
             <h2 id="page-title">All Assets</h2>
             <input type="text" class="search-bar" placeholder="Search assets..." onkeyup="searchAssets(this.value)">
         </div>
-        
+
         <div class="content-area">
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Items injected here -->
@@ -289,7 +320,7 @@
 
     <script>
         // Data populated from Python
-        const assets = {"extracted": ["page28_0.jpeg", "page29_0.jpeg", "page37_0.jpeg", "page37_1.png", "page37_2.jpeg", "page37_3.png", "page60_0.jpeg", "page60_1.jpeg", "page60_2.jpeg", "page60_3.jpeg", "page60_4.jpeg", "page60_5.jpeg", "page60_6.jpeg", "page60_7.jpeg", "page61_0.jpeg", "page61_1.jpeg", "page61_10.jpeg", "page61_11.jpeg", "page61_2.jpeg", "page61_3.jpeg", "page61_4.jpeg", "page61_5.jpeg", "page61_6.jpeg", "page61_7.jpeg", "page61_8.jpeg", "page61_9.jpeg", "page62_0.jpeg", "page62_1.jpeg", "page62_10.jpeg", "page62_2.jpeg", "page62_3.jpeg", "page62_4.jpeg", "page62_5.jpeg", "page62_6.jpeg", "page62_7.jpeg", "page62_8.jpeg", "page62_9.jpeg", "page63_0.jpeg", "page63_1.jpeg", "page63_10.jpeg", "page63_2.jpeg", "page63_3.jpeg", "page63_4.jpeg", "page63_5.jpeg", "page63_6.jpeg", "page63_7.jpeg", "page63_8.jpeg", "page63_9.jpeg", "page64_0.jpeg", "page64_1.jpeg", "page64_10.jpeg", "page64_11.jpeg", "page64_2.jpeg", "page64_3.jpeg", "page64_4.jpeg", "page64_5.jpeg", "page64_6.jpeg", "page64_7.jpeg", "page64_8.jpeg", "page64_9.jpeg", "page65_0.jpeg", "page65_1.jpeg", "page65_2.jpeg", "page65_3.jpeg", "page65_4.jpeg", "page65_5.jpeg", "page65_6.jpeg", "page65_7.jpeg", "page65_8.jpeg", "page65_9.jpeg", "page67_0.png", "page69_0.png", "page69_1.png", "page73_0.jpeg", "page73_1.jpeg", "page73_2.jpeg", "page73_3.jpeg", "page73_4.jpeg", "page74_0.jpeg", "page74_1.jpeg", "page74_2.jpeg", "page74_3.jpeg", "page74_4.jpeg", "page74_5.jpeg", "page74_6.jpeg", "page74_7.jpeg", "page79_0.png", "page82_0.jpeg", "page82_1.jpeg", "page82_2.jpeg", "page82_3.png", "page83_0.jpeg", "page83_1.jpeg", "page83_2.jpeg", "page83_3.jpeg", "page83_4.jpeg", "page83_5.jpeg", "page83_6.jpeg", "page83_7.jpeg", "page83_8.jpeg", "page83_9.jpeg", "page84_0.jpeg", "page84_1.png", "page84_2.jpeg", "page84_3.jpeg", "page84_4.png", "page90_0.jpeg", "page90_1.jpeg", "page90_2.jpeg", "page90_3.jpeg", "page92_0.png", "page92_1.png", "page92_3.jpeg", "page92_4.jpeg", "page93_0.jpeg", "page93_1.png", "page93_15.png", "page93_18.png", "page93_19.jpeg", "page93_2.jpeg", "page93_3.png"]};
+        const assets = { "extracted": ["page28_0.jpeg", "page29_0.jpeg", "page37_0.jpeg", "page37_1.png", "page37_2.jpeg", "page37_3.png", "page60_0.jpeg", "page60_1.jpeg", "page60_2.jpeg", "page60_3.jpeg", "page60_4.jpeg", "page60_5.jpeg", "page60_6.jpeg", "page60_7.jpeg", "page61_0.jpeg", "page61_1.jpeg", "page61_10.jpeg", "page61_11.jpeg", "page61_2.jpeg", "page61_3.jpeg", "page61_4.jpeg", "page61_5.jpeg", "page61_6.jpeg", "page61_7.jpeg", "page61_8.jpeg", "page61_9.jpeg", "page62_0.jpeg", "page62_1.jpeg", "page62_10.jpeg", "page62_2.jpeg", "page62_3.jpeg", "page62_4.jpeg", "page62_5.jpeg", "page62_6.jpeg", "page62_7.jpeg", "page62_8.jpeg", "page62_9.jpeg", "page63_0.jpeg", "page63_1.jpeg", "page63_10.jpeg", "page63_2.jpeg", "page63_3.jpeg", "page63_4.jpeg", "page63_5.jpeg", "page63_6.jpeg", "page63_7.jpeg", "page63_8.jpeg", "page63_9.jpeg", "page64_0.jpeg", "page64_1.jpeg", "page64_10.jpeg", "page64_11.jpeg", "page64_2.jpeg", "page64_3.jpeg", "page64_4.jpeg", "page64_5.jpeg", "page64_6.jpeg", "page64_7.jpeg", "page64_8.jpeg", "page64_9.jpeg", "page65_0.jpeg", "page65_1.jpeg", "page65_2.jpeg", "page65_3.jpeg", "page65_4.jpeg", "page65_5.jpeg", "page65_6.jpeg", "page65_7.jpeg", "page65_8.jpeg", "page65_9.jpeg", "page67_0.png", "page69_0.png", "page69_1.png", "page73_0.jpeg", "page73_1.jpeg", "page73_2.jpeg", "page73_3.jpeg", "page73_4.jpeg", "page74_0.jpeg", "page74_1.jpeg", "page74_2.jpeg", "page74_3.jpeg", "page74_4.jpeg", "page74_5.jpeg", "page74_6.jpeg", "page74_7.jpeg", "page79_0.png", "page82_0.jpeg", "page82_1.jpeg", "page82_2.jpeg", "page82_3.png", "page83_0.jpeg", "page83_1.jpeg", "page83_2.jpeg", "page83_3.jpeg", "page83_4.jpeg", "page83_5.jpeg", "page83_6.jpeg", "page83_7.jpeg", "page83_8.jpeg", "page83_9.jpeg", "page84_0.jpeg", "page84_1.png", "page84_2.jpeg", "page84_3.jpeg", "page84_4.png", "page90_0.jpeg", "page90_1.jpeg", "page90_2.jpeg", "page90_3.jpeg", "page92_0.png", "page92_1.png", "page92_3.jpeg", "page92_4.jpeg", "page93_0.jpeg", "page93_1.png", "page93_15.png", "page93_18.png", "page93_19.jpeg", "page93_2.jpeg", "page93_3.png"] };
         let currentCategory = 'all';
         let currentImages = [];
         let currentIndex = 0;
@@ -297,21 +328,21 @@
         function init() {
             const categoryList = document.getElementById('category-list');
             let totalCount = 0;
-            
+
             // Build Category Map
             Object.keys(assets).forEach(cat => {
                 const count = assets[cat].length;
                 totalCount += count;
-                
+
                 const item = document.createElement('div');
                 item.className = 'nav-item';
                 item.innerHTML = `${cat} <span class="badge">${count}</span>`;
-                item.onclick = function() { filterCategory(cat, this); };
+                item.onclick = function () { filterCategory(cat, this); };
                 categoryList.appendChild(item);
             });
-            
+
             document.getElementById('badge-all').innerText = totalCount;
-            
+
             // Initial Render
             filterCategory('all', document.querySelector('.nav-item.active'));
         }
@@ -319,11 +350,11 @@
         function filterCategory(cat, element) {
             // Update Active State
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            if(element) element.classList.add('active');
-            
+            if (element) element.classList.add('active');
+
             currentCategory = cat;
             document.getElementById('page-title').innerText = cat === 'all' ? 'All Assets' : cat;
-            
+
             renderGrid();
         }
 
@@ -336,10 +367,10 @@
 
             keys.forEach(key => {
                 assets[key].forEach(file => {
-                    if(searchTerm && !file.toLowerCase().includes(searchTerm.toLowerCase())) return;
+                    if (searchTerm && !file.toLowerCase().includes(searchTerm.toLowerCase())) return;
 
                     const relPath = `assets/${key}/${file}`;
-                    
+
                     // Track for modal
                     currentImages.push({ path: relPath, name: file, category: key });
                     const idx = currentImages.length - 1;
@@ -347,7 +378,7 @@
                     const card = document.createElement('div');
                     card.className = 'card';
                     card.onclick = () => openModal(idx);
-                    
+
                     card.innerHTML = `
                         <img src="${relPath}" class="card-img" loading="lazy">
                         <div class="card-info">${file}</div>
@@ -381,13 +412,13 @@
 
         function changeImage(direction) {
             currentIndex += direction;
-            if(currentIndex < 0) currentIndex = currentImages.length - 1;
-            if(currentIndex >= currentImages.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentImages.length - 1;
+            if (currentIndex >= currentImages.length) currentIndex = 0;
             updateModal();
         }
 
         function updateModal() {
-            if(currentImages.length === 0) return;
+            if (currentImages.length === 0) return;
             const item = currentImages[currentIndex];
             modalImg.src = item.path;
             modalTitle.innerText = item.name;
@@ -396,15 +427,15 @@
 
         // Close on outside click
         modal.onclick = (e) => {
-            if(e.target === modal) closeModal();
+            if (e.target === modal) closeModal();
         }
-        
+
         // Key events
         document.addEventListener('keydown', (e) => {
-            if(!modal.classList.contains('active')) return;
-            if(e.key === 'Escape') closeModal();
-            if(e.key === 'ArrowLeft') changeImage(-1);
-            if(e.key === 'ArrowRight') changeImage(1);
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
         });
 
         // Initialize
@@ -412,4 +443,5 @@
 
     </script>
 </body>
+
 </html>
