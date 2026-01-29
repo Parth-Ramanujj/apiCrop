@@ -1,4 +1,6 @@
-import { upload } from 'https://cdn.vercel-storage.com/blob/v1/upload?edge=1';
+import { upload } from 'https://esm.sh/@vercel/blob@0.22.1/client';
+
+console.log("App.js loaded, initializing...");
 
 const dropzone = document.getElementById('dropzone');
 const fileInput = document.getElementById('file-input');
